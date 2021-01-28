@@ -1,4 +1,4 @@
-# Infinity Hedge (EDGE) Explorer 3.0
+# Infinity Hedge (EDGE) Explorer 1.0
 
 <p align="center">
     <img src="/InfinityExplorer.png" />
