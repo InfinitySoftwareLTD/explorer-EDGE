@@ -1,5 +1,33 @@
 module.exports = {
-  
+  purge: {
+    enabled: process.env.NODE_ENV === "production",
+    content: ["./public/index.html", "./src/**/*.vue", "./src/**/*.js", "./src/**/*.ts"],
+    defaultExtractor: (content) => {
+      const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
+      const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || [];
+
+      return broadMatches.concat(innerMatches);
+    },
+    options: {
+      whitelist: [
+        "html",
+        "body",
+        "border-theme-page-background",
+        "table-component__th--sort-asc",
+        "table-component__th--sort-desc",
+        "tooltip",
+        "tooltip-inner",
+        "tooltip-arrow",
+        "tr",
+        "td",
+        "th",
+        "v-spinner",
+        "text-status-became-active",
+      ],
+      whitelistPatterns: [/^tooltip-bg-/, /^vgt-/],
+      whitelistPatternsChildren: [/^vgt-/],
+    },
+  },
   theme: {
     screens: {
       sm: "576px",
@@ -8,9 +36,9 @@ module.exports = {
       xl: "1200px",
     },
 
-    backgroundColor: theme => theme("colors"),
+    backgroundColor: (theme) => theme("colors"),
 
-    borderColor: theme => ({
+    borderColor: (theme) => ({
       default: theme("colors.theme-border"),
       ...theme("colors"),
     }),
@@ -62,7 +90,7 @@ module.exports = {
       "chart-active": "var(--chart-active)",
       "chart-inactive": "var(--chart-inactive)",
       "theme-button": "var(--theme-button)",
-      "theme-button-active": "var(--theme-button-active)",
+      "theme-button-active-down-page": "var(--theme-button-active-down-page)",
       "theme-button-text": "var(--theme-button-text)",
       "theme-button-close": "var(--theme-button-close)",
       "language-icon": "var(--language-icon)",
@@ -338,7 +366,7 @@ module.exports = {
       current: "currentColor",
     },
 
-    textColor: theme => theme("colors"),
+    textColor: (theme) => theme("colors"),
 
     width: {
       auto: "auto",

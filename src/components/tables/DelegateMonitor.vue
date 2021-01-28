@@ -40,7 +40,7 @@
 
         <div v-else-if="data.column.field === 'votes'">
           <span v-tooltip="$t('COMMON.SUPPLY_PERCENTAGE')" class="text-grey text-xs mr-1">
-            {{ percentageString(data.row.production.approval) }}
+            {{ percentageString(delegatePercentage(data.row.votes)) }}
           </span>
           {{ readableCrypto(data.row.votes, true, 2) }}
         </div>
@@ -56,6 +56,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { IDelegate, ISortParameters } from "@/interfaces";
+import { BigNumber } from "@/utils";
 
 @Component
 export default class TableDelegates extends Vue {
@@ -67,6 +68,7 @@ export default class TableDelegates extends Vue {
   })
   public delegates: IDelegate[] | null;
   @Prop({ required: false, default: "active" }) public activeTab: string;
+  @Prop({ required: true }) public curincir: string;
 
   get columns() {
     let columns = [
@@ -195,6 +197,10 @@ export default class TableDelegates extends Vue {
 
   private emitSortChange(params: ISortParameters[]) {
     this.$emit("on-sort-change", params[0]);
+  }
+
+  private delegatePercentage(votes){
+    return BigNumber.make(votes).dividedBy(this.curincir).times(100).toNumber();
   }
 }
 </script>

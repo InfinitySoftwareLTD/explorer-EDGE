@@ -44,6 +44,17 @@ hr {
   margin-top: 2px;
 }
 
+.unlisted-address-header {
+  color: rgba(55, 144, 255);
+  cursor: pointer;
+  background-color: var(--theme-border-secondary);
+}
+
+.topwallets-address-header {
+  background-color: var(--theme-border-secondary);
+}
+
+
 button,
 input,
 optgroup,

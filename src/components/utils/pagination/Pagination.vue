@@ -238,7 +238,7 @@ button[class*="Pagination__Button--"] {
 }
 
 .Pagination__Button.active {
-  @apply .bg-theme-button-active .text-theme-button-text;
+  @apply .bg-theme-button-active-down-page .text-theme-button-text;
 }
 
 .Pagination__Button:not(:disabled):hover {

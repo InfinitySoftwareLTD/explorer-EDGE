@@ -33,6 +33,7 @@ Vue.component("TableDelegatesDesktop", require("@/components/tables/Delegates").
 Vue.component("TableBlocksMobile", require("@/components/tables/mobile/Blocks").default);
 Vue.component("TableTransactionsMobile", require("@/components/tables/mobile/Transactions").default);
 Vue.component("TableWalletsMobile", require("@/components/tables/mobile/Wallets").default);
+Vue.component("TableWalletsUnlisted", require("@/components/tables/unlisted/Wallets").default);
 Vue.component("TableWalletsSearchMobile", require("@/components/tables/mobile/WalletsSearch").default);
 Vue.component("TableLockTransactionsMobile", require("@/components/tables/mobile/LockTransactions").default);
 Vue.component("TableBusinessesMobile", require("@/components/tables/mobile/Businesses").default);

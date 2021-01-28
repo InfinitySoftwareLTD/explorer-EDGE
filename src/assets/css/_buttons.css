@@ -49,7 +49,7 @@ button:disabled {
 }
 
 .menu-button:hover {
-  @apply .border-red;
+  border-color: #fdbe4c;/* color under Buttons menu */
 }
 
 /* Dropdown Buttons */

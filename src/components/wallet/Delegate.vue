@@ -4,7 +4,6 @@
       <div>{{ $t("WALLET.DELEGATE.USERNAME") }}</div>
       <div>{{ delegate.username }}</div>
     </div>
-
     <div class="list-row-border-b">
       <div>{{ $t("WALLET.DELEGATE.STATUS.TITLE") }}</div>
       <div :class="delegateStatus.class">{{ delegateStatus.text }}</div>
@@ -40,7 +39,7 @@
           "
           class="text-grey text-xs mr-1"
         >
-          {{ percentageString(delegate.production.approval) }}
+          {{ percentageString(delegatePercentage(delegate.votes)) }}
         </span>
         {{ readableCrypto(delegate.votes, true, 2) }}
       </div>
@@ -75,6 +74,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import { mapGetters } from "vuex";
+import { BigNumber } from "@/utils";
 import { IWallet } from "@/interfaces";
 import WalletVoters from "@/components/wallet/Voters.vue";
 
@@ -82,13 +83,18 @@ import WalletVoters from "@/components/wallet/Voters.vue";
   components: {
     WalletVoters,
   },
+  computed: {
+    ...mapGetters("network", ["cur"]),
+  },
 })
 export default class WalletDelegate extends Vue {
   @Prop({ required: true }) public wallet: IWallet;
-
+  private cur: string;
+  
   get delegate() {
     return this.$store.getters["delegates/byPublicKey"](this.wallet.publicKey);
   }
+
 
   get delegateStatus() {
     const activeThreshold = this.$store.getters["network/activeDelegates"];
@@ -99,6 +105,10 @@ export default class WalletDelegate extends Vue {
       return { text: this.$t("WALLET.DELEGATE.STATUS.ACTIVE"), class: "text-status-forging" };
     }
     return { text: this.$t("WALLET.DELEGATE.STATUS.STANDBY"), class: "text-status-missed-round" };
+  }
+
+  private delegatePercentage(votes){
+    return BigNumber.make(votes).dividedBy(this.cur).times(100).toNumber();
   }
 }
 </script>

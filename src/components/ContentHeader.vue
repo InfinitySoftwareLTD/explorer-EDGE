@@ -9,9 +9,10 @@
       >
         <div class="pr-6">{{ $t("COMMON.HEIGHT") }}: {{ readableNumber(height) }}</div>
         <div class="pr-6">{{ $t("HEADER.NETWORK") }}: {{ $t(`HEADER.${alias.replace(" ", "_").toUpperCase()}`) }}</div>
-        <div :class="{ 'pr-6': showMarketCap }">
+        <div class="pr-6">
           {{ $t("HEADER.SUPPLY") }}: <span class="whitespace-no-wrap">{{ readableCrypto(supply, true, 0) }}</span>
         </div>
+        <div :class="{ 'pr-6': showMarketCap }">{{ $t("HEADER.CURRENCYINCIRC") }}: {{ readableCrypto(cur, true, 0) }}</div>
         <div v-if="showMarketCap">
           {{ $t("HEADER.MARKET_CAP") }}: <span class="whitespace-no-wrap">{{ readableCurrency(supply) }}</span>
         </div>
@@ -42,13 +43,14 @@ import { mapGetters } from "vuex";
 
 @Component({
   computed: {
-    ...mapGetters("network", ["alias", "supply", "height", "isListed", "token"]),
+    ...mapGetters("network", ["alias", "supply", "height", "isListed", "token", "cur"]),
     ...mapGetters("currency", ["name", "rate", "symbol"]),
   },
 })
 export default class ContentHeader extends Vue {
   private alias: string;
   private supply: string;
+  private cur: string;
   private height: number;
   private name: string;
   private rate: number;

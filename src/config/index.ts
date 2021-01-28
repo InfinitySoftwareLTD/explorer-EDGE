@@ -5,8 +5,8 @@ export const I18N = {
 
 export const brand = {
   footer: {
-    url: "https://infinitysoftware.io",
-    text: "Infinity Software.",
+    url: "https://www.infinitysoftware.io",
+    text: "infinity",
   },
 };
 
@@ -18,17 +18,17 @@ export const knownWalletsUrls = {
 export const socialMedia = [
   {
     name: "facebook",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 10 16",
   },
   {
     name: "twitter",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 16 16",
   },
   {
     name: "youtube",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 18 16",
   },
   {
@@ -38,52 +38,52 @@ export const socialMedia = [
   },
   {
     name: "telegram",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 14 16",
   },
   {
     name: "reddit",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 16 16",
   },
   {
     name: "github",
-    url: "https://github.com/Plusid/core-explorer-infinity",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 16 16",
   },
   {
     name: "bitcointalk",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 16 16",
   },
   {
     name: "slack",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 14 16",
   },
   {
     name: "discord",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 14 16",
   },
   {
     name: "instagram",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 14 16",
   },
   {
     name: "medium",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 16 16",
   },
   {
     name: "soundcloud",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 20 16",
   },
   {
     name: "minds",
-    url: "https://infinitysoftware.io",
+    url: "https://www.infinitysoftware.io",
     viewBox: "0 0 14 16",
   },
 ];

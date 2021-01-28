@@ -15,6 +15,35 @@ class WalletService {
         limit,
       },
     });
+
+    const unlisted_addresses = await ApiService.getUnlisted();
+    var unlisted_add_array = [];
+    for(const singleUnlisted of unlisted_addresses){
+        const address = singleUnlisted.address;
+        unlisted_add_array.push(address);
+    }
+    
+    var unlistedCount = 0;
+    response.unlisted_addresses = [];
+    var listed_addresses = [];
+    for(var i = 0; i < response.data.length; i++){
+      const singlewalet = response.data[i];
+      const walletAddress = singlewalet.address;
+     
+      if(unlisted_add_array.includes(walletAddress)){
+        response.unlisted_addresses.push(response.data[i]);
+        unlistedCount++;
+      } else {
+        listed_addresses.push(response.data[i]);
+      }
+    }
+    
+    if(unlistedCount > 0){
+      response.hasUnlisted = '1';
+    }
+
+    response.data = listed_addresses;
+
     return response;
   }
 

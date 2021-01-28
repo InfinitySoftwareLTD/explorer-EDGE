@@ -15,6 +15,11 @@ class ApiService {
     return response.data;
   }
 
+  public async getUnlisted(){
+    const response = await axios.get('unlisted_adresses.json');
+    return response.data;
+  }
+
   public async post(url: string, data = {}, config: AxiosRequestConfig = {}): Promise<IApiResponse> {
     if (!config.headers) {
       config.headers = {

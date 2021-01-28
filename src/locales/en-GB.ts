@@ -241,6 +241,7 @@ export default {
     },
     TOP_WALLETS: {
       TITLE: "Top Wallets",
+      UNLISTED_ADDRESSES: "Frozen wallet and Currency not released"
     },
     ADVANCED_SEARCH: {
       TITLE: "Advanced Search",
@@ -297,9 +298,10 @@ export default {
     NETWORK: "Network",
     MAIN: "Main",
     DEVELOPMENT: "Development",
-    SUPPLY: "Supply",
+    SUPPLY: "Total Supply",
     MARKET_CAP: "Market Cap",
     TESTNET_LOCAL: "Testnet Local",
+    CURRENCYINCIRC: "Currency in Circulation"
   },
 
   FOOTER: {

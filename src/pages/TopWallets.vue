@@ -3,9 +3,17 @@
     <ContentHeader>{{ $t("PAGES.TOP_WALLETS.TITLE") }}</ContentHeader>
     <section class="page-section py-5 md:py-10">
       <div class="hidden sm:block">
+        <h2 class="py-5 unlisted-address-header text-center sm:mr-5 ml-5" @click="toggleUnlisted = !toggleUnlisted">{{ $t("PAGES.TOP_WALLETS.UNLISTED_ADDRESSES") }}</h2>
+        <TableWalletsUnlisted v-show="toggleUnlisted"
+          :wallets="unlistedwallets"
+          :total="cur"
+          :unlisted="hasUnlisted"
+        />
+        <h1 class="py-5 text-2xl mt-5 topwallets-address-header text-center">{{ $t("PAGES.TOP_WALLETS.TITLE") }}</h1>
         <TableWalletsDesktop
           :wallets="wallets"
-          :total="supply"
+          :total="cur"
+          :unlisted="hasUnlisted"
           :sort-query="sortParams"
           @on-sort-change="onSortChange"
         />
@@ -29,7 +37,8 @@ Component.registerHooks(["beforeRouteEnter", "beforeRouteUpdate"]);
 
 @Component({
   computed: {
-    ...mapGetters("network", ["supply"]),
+    console: () => console,
+    ...mapGetters("network", ["supply", "cur"]),
   },
 })
 export default class TopWallets extends Vue {
@@ -48,9 +57,12 @@ export default class TopWallets extends Vue {
     });
   }
   private wallets: IWallet[] | null = null;
+  private unlistedwallets: IWallet[] | null = null;
   private meta: any | null = null;
+  private hasUnlisted: string = '0';
   private currentPage = 0;
   private supply: string;
+  private toggleUnlisted: boolean = false;
 
   @Watch("currentPage")
   public onCurrentPageChanged() {
@@ -59,12 +71,14 @@ export default class TopWallets extends Vue {
 
   public async beforeRouteEnter(to: Route, from: Route, next: (vm?: any) => void) {
     try {
-      const { meta, data } = await WalletService.top(Number(to.params.page));
-
+      const { meta, data, hasUnlisted, unlisted_addresses } = await WalletService.top(Number(to.params.page));
+      
       next((vm: TopWallets) => {
         vm.currentPage = Number(to.params.page);
         vm.setWallets(data);
+        vm.setUnlistedAddresses(unlisted_addresses);
         vm.setMeta(meta);
+        vm.setUnlisted(hasUnlisted);
       });
     } catch (e) {
       next({ name: "404" });
@@ -74,13 +88,17 @@ export default class TopWallets extends Vue {
   public async beforeRouteUpdate(to: Route, from: Route, next: (vm?: any) => void) {
     this.wallets = null;
     this.meta = null;
+    this.hasUnlisted = null;
+    this.unlistedwallets = null;
 
     try {
-      const { meta, data } = await WalletService.top(Number(to.params.page));
+      const { meta, data, hasUnlisted, unlisted_addresses } = await WalletService.top(Number(to.params.page));
 
       this.currentPage = Number(to.params.page);
       this.setWallets(data);
+      this.setUnlistedAddresses(unlisted_addresses);
       this.setMeta(meta);
+      this.setUnlisted(hasUnlisted);
       next();
     } catch (e) {
       next({ name: "404" });
@@ -89,6 +107,10 @@ export default class TopWallets extends Vue {
 
   public setMeta(meta: any) {
     this.meta = meta;
+  }
+
+  public setUnlisted(unlisted: any){
+    this.hasUnlisted = unlisted;
   }
 
   public onPageChange(page: number) {
@@ -101,7 +123,7 @@ export default class TopWallets extends Vue {
       this.$router.push({
         name: "top-wallets",
         params: {
-          page: this.currentPage,
+          page: this.currentPage.toString(),
         },
       });
     }
@@ -109,6 +131,10 @@ export default class TopWallets extends Vue {
 
   private setWallets(wallets: IWallet[]) {
     this.wallets = wallets;
+  }
+
+  private setUnlistedAddresses(wallets: IWallet[]) {
+    this.unlistedwallets = wallets;
   }
 
   private onSortChange(params: ISortParameters) {

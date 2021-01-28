@@ -5,7 +5,6 @@
       :columns="columns"
       :rows="wallets"
       :no-data-message="$t('COMMON.NO_RESULTS')"
-      @on-sort-change="emitSortChange"
     >
       <template slot-scope="data">
         <div v-if="data.column.field === 'originalIndex'">
@@ -20,10 +19,6 @@
           <span>
             {{ readableCrypto(data.row.balance, true, truncateBalance ? 2 : 8) }}
           </span>
-        </div>
-
-        <div v-else-if="data.column.field === 'supply'">
-          {{ supplyPercentage(data.row.balance) }}
         </div>
       </template>
     </TableWrapper>
@@ -43,7 +38,7 @@ import { paginationLimit } from "@/constants";
     ...mapGetters("network", ["supply"]),
   },
 })
-export default class TableWalletsDesktop extends Vue {
+export default class TableWalletsUnlisted extends Vue {
   get truncateBalance() {
     return this.windowWidth < 700;
   }
@@ -65,16 +60,10 @@ export default class TableWalletsDesktop extends Vue {
         label: this.$t("COMMON.BALANCE"),
         field: "balance",
         type: "number",
-        tdClass: "whitespace-no-wrap",
-      },
-      {
-        label: this.$t("COMMON.SUPPLY"),
-        field: "supply",
-        type: "number",
-        sortable: false,
         thClass: "end-cell w-24 not-sortable",
-        tdClass: "end-cell w-24",
+        tdClass: "end-cell w-24 whitespace-no-wrap",
       },
+     
     ];
 
     return columns;
@@ -102,10 +91,6 @@ export default class TableWalletsDesktop extends Vue {
     });
   }
 
-  public supplyPercentage(balance: string): string {
-    // @ts-ignore
-    return this.percentageString(BigNumber.make(balance).dividedBy(this.total).times(100).toNumber());
-  }
 
   public getUnlisted(){
     return parseInt(this.unlisted);
@@ -115,10 +100,6 @@ export default class TableWalletsDesktop extends Vue {
     const page = Number(this.$route.params.page) > 1 ? Number(this.$route.params.page) - 1 : 0;
 
     return page * paginationLimit + (index + 1);
-  }
-
-  private emitSortChange(params: ISortParameters[]) {
-    this.$emit("on-sort-change", params[0]);
   }
 }
 </script>
