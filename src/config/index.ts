@@ -11,8 +11,8 @@ export const brand = {
 };
 
 export const knownWalletsUrls = {
-  mainnet: "https://raw.githubusercontent.com/ArkEcosystem/common/master/mainnet/known-wallets.json",
-  devnet: "https://raw.githubusercontent.com/ArkEcosystem/common/master/devnet/known-wallets.json",
+  mainnet: "https://raw.githubusercontent.com/Plusid/peers_infinity/master/mainnet/edge.json",
+  devnet: "https://raw.githubusercontent.com/Plusid/peers_infinity/master/devnet/edge.json",
 };
 
 export const socialMedia = [
