@@ -70,7 +70,7 @@ export default {
     },
     SENDER: "Nadawca",
     RECIPIENT: "Odbiorca",
-    SMARTBRIDGE: "Smartbridge",
+    SMARTBRIDGE: "Memo",
     WELL_CONFIRMED: "Dobrze Potwierdzona",
   },
 
