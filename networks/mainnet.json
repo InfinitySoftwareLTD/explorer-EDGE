@@ -6,11 +6,11 @@
   "rewardOffset": "1000000",
   "currencies": [],
   "defaults": {
-    "token": "INFI",
+    "token": "EDGE",
     "symbol": "∞",
     "currency": null,
     "priceChartOptions": {
-      "enabled": true,
+      "enabled": false,
       "period": "day",
       "type": "price"
     },
