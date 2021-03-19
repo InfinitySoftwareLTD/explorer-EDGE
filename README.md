@@ -15,7 +15,7 @@ You can access it at [https://infinitysolutions.io/](https://infinitysolutions.i
 
 ```bash
 git clone https://github.com/Plusid/explorer-EDGE.git
-cd core-explorer
+cd explorer-EDGE
 ```
 
 ### 2. Install Dependencies
