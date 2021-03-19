@@ -104,12 +104,5 @@
     "vue-good-table": "^2.18.1",
     "vue-template-compiler": "^2.6.11"
   },
-  "bugs": {
-    "url": "https://github.com/arkecosystem/explorer/issues"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arkecosystem/explorer.git"
-  }
+  "license": "MIT"
 }
