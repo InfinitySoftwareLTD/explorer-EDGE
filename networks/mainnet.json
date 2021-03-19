@@ -7,7 +7,7 @@
   "currencies": [],
   "defaults": {
     "token": "EDGE",
-    "symbol": "∞",
+    "symbol": "H",
     "currency": null,
     "priceChartOptions": {
       "enabled": false,
