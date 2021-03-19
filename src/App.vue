@@ -69,7 +69,7 @@ export default class App extends Vue {
     let nightModeBoolean = nightMode === "true" ? true : false;
     if (nightMode === null) {
       // Only on first time
-      nightModeBoolean = network.alias === "Development";
+      nightModeBoolean = network.alias === "Mainnet";
     }
 
     this.$store.dispatch("ui/setNightMode", nightModeBoolean);
