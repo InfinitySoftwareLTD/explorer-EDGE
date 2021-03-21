@@ -14,7 +14,7 @@
         </div>
         <div :class="{ 'pr-6': showMarketCap }">{{ $t("HEADER.CURRENCYINCIRC") }}: {{ readableCrypto(cur, true, 0) }}</div>
         <div v-if="showMarketCap">
-          {{ $t("HEADER.MARKET_CAP") }}: <span class="whitespace-no-wrap">{{ readableCurrency(supply) }}</span>
+          {{ $t("HEADER.MARKET_CAP") }}: <span class="whitespace-no-wrap">{{ readableCurrency(curincir) }}</span>
         </div>
       </div>
     </div>
