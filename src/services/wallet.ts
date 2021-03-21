@@ -27,8 +27,8 @@ class WalletService {
     response.unlisted_addresses = [];
     var listed_addresses = [];
     for(var i = 0; i < response.data.length; i++){
-      const singlewalet = response.data[i];
-      const walletAddress = singlewalet.address;
+      const singlewallet = response.data[i];
+      const walletAddress = singlewallet.address;
      
       if(unlisted_add_array.includes(walletAddress)){
         response.unlisted_addresses.push(response.data[i]);
