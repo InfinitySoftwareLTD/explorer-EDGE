@@ -31,7 +31,7 @@
       </div>
       <div>
         <span>{{ $t("HEADER.SUPPLY") }}:</span>
-        <span class="block md:inline-block whitespace-no-wrap">{{ readableCrypto(supply, true, 0) }}</span>
+        <span class="block md:inline-block whitespace-no-wrap">{{ readableCrypto(cur, true, 0) }}</span>
       </div>
     </div>
   </div>
