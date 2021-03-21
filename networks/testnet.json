@@ -1,14 +1,14 @@
 {
-  "title": "infinity Testnet Explorer",
+  "title": "Hedge Testnet Explorer",
   "server": "http://159.65.199.136:4003/api/v2",
-  "alias": "Testnet local",
+  "alias": "Testnet",
   "activeDelegates": "25",
   "rewardOffset": "1000000",
   "currencies": [],
   "knownWallets": {},
   "defaults": {
-    "token": "INFI",
-    "symbol": "∞",
+    "token": "EDGE",
+    "symbol": "H",
     "currency": null,
     "priceChartOptions": {
       "enabled": false,

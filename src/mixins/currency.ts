@@ -36,7 +36,6 @@ export default {
       bigNumberValue = bigNumberValue.times(rate || BigNumber.make(store.getters["currency/rate"]));
 
       const cryptos: { [key: string]: string } = {
-        INFI: "∞",
         ARK: "Ѧ",
         BTC: "Ƀ",
         ETH: "Ξ",
@@ -54,7 +53,7 @@ export default {
     },
 
     rawCurrency(value: number, currencyName: string): string {
-      return [store.getters["network/token"], "INFI", "BTC", "ETH", "LTC"].some((c) => currencyName.indexOf(c) > -1)
+      return [store.getters["network/token"], "BTC", "ETH", "LTC"].some((c) => currencyName.indexOf(c) > -1)
         ? value.toLocaleString(locale, {
             maximumFractionDigits: 5,
           })

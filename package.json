@@ -1,7 +1,7 @@
 {
   "name": "infinity-blockchain-explorer",
   "version": "1.0.0",
-  "description": "A Blockchain Explorer for ARK using Vue.js and Tailwind CSS",
+  "description": "A Blockchain Explorer for Hedge using Vue.js and Tailwind CSS",
   "author": "Brian Faust",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -105,11 +105,11 @@
     "vue-template-compiler": "^2.6.11"
   },
   "bugs": {
-    "url": "https://github.com/arkecosystem/explorer/issues"
+    "url": "https://github.com/Plusid/explorer_EDGE./issues"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arkecosystem/explorer.git"
+    "url": "git+https://github.com/Plusid/explorer_EDGE.git"
   }
 }

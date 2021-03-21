@@ -1,16 +1,16 @@
 {
-  "title": "infinity Devnet Explorer",
-  "server": "http://159.65.199.136:4003/api/v2",
+  "title": " Hedge Devnet Explorer",
+  "server": "http://api.hedge.infinitysolutions.io/api",
   "alias": "Development",
   "activeDelegates": "25",
   "rewardOffset": "1000000",
   "currencies": [],
   "defaults": {
-    "token": "INFI",
-    "symbol": "∞",
+    "token": "EDGE",
+    "symbol": "H",
     "currency": null,
     "priceChartOptions": {
-      "enabled": false,
+      "enabled": true,
       "period": "day",
       "type": "price"
     },
