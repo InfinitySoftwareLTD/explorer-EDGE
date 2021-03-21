@@ -1,6 +1,6 @@
 {
   "title": " Hedge Devnet Explorer",
-  "server": "http://api.hedge.infinitysolutions.io/api",
+  "server": "https://api.hedge.infinitysolutions.io/api",
   "alias": "Development",
   "activeDelegates": "25",
   "rewardOffset": "1000000",
