@@ -6,10 +6,6 @@
 
 > Designed and developed from the ground-up, using lean & fast developmental frameworks (Tailwind CSS & Vue.JS).
 
-[![Build Status](https://badgen.now.sh/github/status/ArkEcosystem/Explorer/develop)](https://github.com/ArkEcosystem/explorer/actions?query=branch%3Adevelop)
-[![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/explorer)](https://codecov.io/gh/arkecosystem/explorer)
-[![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
-
 
 You can access it at [https://infinitysolutions.io/](https://infinitysolutions.io/).
 
@@ -18,8 +14,8 @@ You can access it at [https://infinitysolutions.io/](https://infinitysolutions.i
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Plusid/core-explorer
-cd core-explorer
+git clone https://github.com/Plusid/explorer-EDGE.git
+cd explorer-EDGE
 ```
 
 ### 2. Install Dependencies

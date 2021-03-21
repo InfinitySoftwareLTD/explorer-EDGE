@@ -1,6 +1,6 @@
 {
   "title": "Hedge Testnet Explorer",
-  "server": "http://159.65.199.136:4003/api/v2",
+  "server": "https://api.hedge.infinitysolutions.io/api",
   "alias": "Testnet",
   "activeDelegates": "25",
   "rewardOffset": "1000000",

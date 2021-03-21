@@ -1,16 +1,16 @@
 {
   "title": "infinity Mainnet Explorer",
-  "server": "http://api.hedge.infinitysolutions.io/api",
+  "server": "http://api.hedge.infinitysolutions.io",
   "alias": "Main",
   "activeDelegates": "25",
   "rewardOffset": "1000000",
   "currencies": [],
   "defaults": {
-    "token": "INFI",
-    "symbol": "∞",
+    "token": "EDGE",
+    "symbol": "H",
     "currency": null,
     "priceChartOptions": {
-      "enabled": true,
+      "enabled": false,
       "period": "day",
       "type": "price"
     },
