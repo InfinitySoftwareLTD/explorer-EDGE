@@ -6,12 +6,12 @@ import { ActionTree, GetterTree, Module, MutationTree } from "vuex";
 const namespaced = true;
 const state: ICurrencyState = {
   name: "USD",
-  rate: 0.01,
+  rate: 1,
   symbol: "$",
   lastConversion: {
     to: "USD",
     timestamp: 1,
-    rate: 0.01,
+    rate: 1,
   },
 };
 
