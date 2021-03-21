@@ -1,6 +1,6 @@
 {
   "title": "infinity Mainnet Explorer",
-  "server": "http://api.hedge.infinitysolutions.io/api",
+  "server": "https://api.hedge.infinitysolutions.io/api",
   "alias": "Main",
   "activeDelegates": "25",
   "rewardOffset": "1000000",
