@@ -25,6 +25,7 @@ yarn install
 
 ```bash
 yarn build:mainnet
+pm2 start explorer
 ```
 
 #### 2.2 Devnet
