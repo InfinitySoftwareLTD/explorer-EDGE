@@ -44,19 +44,8 @@ yarn build --network my-custom-network
 pm2 start explorer
 ```
 
-#### 2.4 GitHub Pages
 
-If you are going to host your explorer instance on GitHub Pages you will need to specify your base url in most cases as GitHub Pages serves repositories from sub-directories instead of sub-domains.
-
-```bash
-yarn build --base https://username.github.io/repository/
-```
-
-A running instance of the explorer on GitHub Pages can be found at https://github.com/Plusid/core-explorer.
-
-> This step is not required if you are hosting the explorer on your "root" repository which is usually your username https://username.github.io/.
-
-#### 2.5 Run Express Server
+#### 2.4 Run Express Server
 
 You can run the explorer as an express server. This makes it a little more light-weight but not needing to have services such as apache or nginx.
 
