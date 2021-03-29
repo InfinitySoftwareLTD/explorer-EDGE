@@ -7,7 +7,7 @@
 > Designed and developed from the ground-up, using lean & fast developmental frameworks (Tailwind CSS & Vue.JS).
 
 
-You can access it at [https://infinitysolutions.io/](https://infinitysolutions.io/).
+You can access it at [https://explorer.hedge.infinitysolutions.io/](https://explorer.hedge.infinitysolutions.io/).
 
 ## Build Setup
 
