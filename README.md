@@ -91,6 +91,20 @@ yarn build:mainnet --history
 yarn serve --env.routerMode=history
 ```
 
+### 5. Commands
+
+<details><summary>Configuration forger</summary>
+
+```bash
+# status
+pm2 status
+
+# Start Explorer
+pm2 start explorer
+
+# Stop Explorer
+pm2 stop explorer
+```
 ## Testing
 
 ```bash
