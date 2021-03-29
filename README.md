@@ -32,12 +32,16 @@ pm2 start explorer
 
 ```bash
 yarn build:devnet
+pm2 start explorer
 ```
 
 #### 2.3 Custom
 
 ```bash
 yarn build --network my-custom-network
+```
+```bash
+pm2 start explorer
 ```
 
 #### 2.4 GitHub Pages
