@@ -16,7 +16,7 @@
           {{ $t("HEADER.CURRENCYINCIRC") }}: {{ readableCrypto(cur, true, 2) }}
         </div>
         <div v-if="showMarketCap">
-          {{ $t("HEADER.MARKET_CAP") }}: <span class="whitespace-no-wrap">{{ readableCurrency((cur * currentRate)) }}</span
+            {{ $t("HEADER.MARKET_CAP") }}: <span class="whitespace-no-wrap">{{ readableCurrency(cur, currentRate ) }}</span
           ><!-- jelmar Change -->
         </div>
       </div>
@@ -60,9 +60,10 @@ export default class ContentHeader extends Vue {
   private symbol: string;
   private isListed: boolean;
   private token: string;
-
   get showMarketCap() {
     return this.isListed && this.token !== this.name;
   }
+ 
+  
 }
 </script>

@@ -22,6 +22,7 @@ class BlockchainService {
       let serveralias: any = [];
       const server = await store.getters["network/alias"];
       const { testnet, devnet, mainnet } = await ApiService.getUnlisted();
+      console.log("server", server);
       if (server === "Main") serveralias = mainnet;
       if (server === "Development") serveralias = devnet;
       if (server === "Testnet") serveralias = testnet;
@@ -34,6 +35,7 @@ class BlockchainService {
               ? "0"
               : Math.floor(Number(wallet.data.balance));
           finalBalance += Math.floor(Number(sbalance)); // jelmar change
+          console.log(finalBalance);
         } catch (error) {}
       }
       return finalBalance;

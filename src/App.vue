@@ -196,7 +196,10 @@ export default class App extends Vue {
     try {
     const supply = await BlockchainService.supply();
     const balance = await BlockchainService.cur();
+    console.log("balance", balance);
+    
     const curincir = await Math.floor(Number(supply)) - await Math.floor(Number(balance)); //jelmar change
+      console.log("balance all", curincir);
     this.$store.dispatch("network/setCur", curincir);
     } catch (error) {
       
