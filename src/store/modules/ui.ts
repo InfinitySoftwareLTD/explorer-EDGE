@@ -230,26 +230,34 @@ const getters: GetterTree<IUiState, {}> = {
   menuVisible: (state) => state.menuVisible,
 
   hasAcceptedLinkDisclaimer(state) {
-    return state.hasAcceptedLinkDisclaimer || localStorage.getItem("hasAcceptedLinkDisclaimer");
+    return (
+      state.hasAcceptedLinkDisclaimer ||
+      localStorage.getItem("hasAcceptedLinkDisclaimer")
+    );
   },
 
   blockSortParams(state) {
-    const params = state.blockSortParams || localStorage.getItem("blockSortParams");
+    const params =
+      state.blockSortParams || localStorage.getItem("blockSortParams");
     return params ? JSON.parse(params) : { field: "height", type: "desc" };
   },
 
   businessSortParams(state) {
-    const params = state.businessSortParams || localStorage.getItem("businessSortParams");
+    const params =
+      state.businessSortParams || localStorage.getItem("businessSortParams");
     return params ? JSON.parse(params) : { field: "name", type: "asc" };
   },
 
   bridgechainSortParams(state) {
-    const params = state.bridgechainSortParams || localStorage.getItem("bridgechainSortParams");
+    const params =
+      state.bridgechainSortParams ||
+      localStorage.getItem("bridgechainSortParams");
     return params ? JSON.parse(params) : { field: "name", type: "asc" };
   },
 
   delegateSortParams(state) {
-    const params = state.delegateSortParams || localStorage.getItem("delegateSortParams");
+    const params =
+      state.delegateSortParams || localStorage.getItem("delegateSortParams");
     return params
       ? JSON.parse(params)
       : {
@@ -262,17 +270,26 @@ const getters: GetterTree<IUiState, {}> = {
   },
 
   transactionSortParams(state) {
-    const params = state.transactionSortParams || localStorage.getItem("transactionSortParams");
-    return params ? JSON.parse(params) : { field: "timestamp.unix", type: "desc" };
+    const params =
+      state.transactionSortParams ||
+      localStorage.getItem("transactionSortParams");
+    return params
+      ? JSON.parse(params)
+      : { field: "timestamp.unix", type: "desc" };
   },
 
   walletSortParams(state) {
-    const params = state.walletSortParams || localStorage.getItem("walletSortParams");
-    return params ? JSON.parse(params) : { field: "originalIndex", type: "asc" };
+    const params =
+      state.walletSortParams || localStorage.getItem("walletSortParams");
+    return params
+      ? JSON.parse(params)
+      : { field: "originalIndex", type: "asc" };
   },
 
   walletSearchSortParams(state) {
-    const params = state.walletSearchSortParams || localStorage.getItem("walletSearchSortParams");
+    const params =
+      state.walletSearchSortParams ||
+      localStorage.getItem("walletSearchSortParams");
     return params ? JSON.parse(params) : { field: "balance", type: "desc" };
   },
 

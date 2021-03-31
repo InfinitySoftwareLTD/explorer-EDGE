@@ -8,40 +8,88 @@ class WalletService {
     return response.data;
   }
 
+  // public async top(page = 1, limit: number = paginationLimit) {
+  //   const response = await ApiService.get("wallets/top", {
+  //     params: {
+  //       page,
+  //       limit,
+  //     },
+  //   });
+  //  console.log("data daw ne",response);
+  //   const unlisted_addresses = await ApiService.getUnlisted();
+  //   const unlisted_add_array = [];
+  //   for(const singleUnlisted of unlisted_addresses){
+  //       const address = singleUnlisted.address;
+  //       unlisted_add_array.push(address);
+  //   }
+
+  //   let unlistedCount = 0;
+  //   response.unlisted_addresses = [];
+  //   const listed_addresses = [];
+  //   for(let i = 0; i < response.data.length; i++){
+  //     const singlewallet = response.data[i];
+  //     const walletAddress = singlewallet.address;
+
+  //     if(unlisted_add_array.includes(walletAddress)){
+  //       response.unlisted_addresses.push(response.data[i]);
+  //       unlistedCount++;
+  //     } else {
+  //       listed_addresses.push(response.data[i]);
+  //     }
+  //   }
+
+  //   if(unlistedCount > 0){
+  //     response.hasUnlisted = '1';
+  //   }
+
+  //   response.data = listed_addresses;
+
+  //   return response;
+  // }
+
   public async top(page = 1, limit: number = paginationLimit) {
+    //change jelmar
     const response = await ApiService.get("wallets/top", {
       params: {
         page,
         limit,
       },
     });
-
-    const unlisted_addresses = await ApiService.getUnlisted();
-    var unlisted_add_array = [];
-    for(const singleUnlisted of unlisted_addresses){
-        const address = singleUnlisted.address;
-        unlisted_add_array.push(address);
+    const { testnet, devnet, mainnet } = await ApiService.getUnlisted();
+    const unlisted_add_array = [];
+    for (const singleUnlisted of testnet) {
+      const address = singleUnlisted;
+      unlisted_add_array.push(address);
     }
-    
-    var unlistedCount = 0;
+
+    let unlistedCount = 0;
     response.unlisted_addresses = [];
-    var listed_addresses = [];
-    for(var i = 0; i < response.data.length; i++){
+    const listed_addresses = [];
+    for (let i = 0; i < response.data.length; i++) {
       const singlewallet = response.data[i];
       const walletAddress = singlewallet.address;
-     
-      if(unlisted_add_array.includes(walletAddress)){
+      if (unlisted_add_array.includes(walletAddress)) {
         response.unlisted_addresses.push(response.data[i]);
         unlistedCount++;
       } else {
         listed_addresses.push(response.data[i]);
       }
     }
-    
-    if(unlistedCount > 0){
-      response.hasUnlisted = '1';
+    for (const singleUnlisted of testnet) {
+      const address = singleUnlisted;
+      const hasIn = response.unlisted_addresses.some(
+        (item) => item.address === address
+      );
+      if (!hasIn) {
+        const balance = "0";
+        response.unlisted_addresses.push({ address, balance });
+        unlistedCount++;
+      }
     }
 
+    if (unlistedCount > 0) {
+      response.hasUnlisted = "1";
+    }
     response.data = listed_addresses;
 
     return response;
@@ -50,7 +98,7 @@ class WalletService {
   public async search(
     body: IWalletSearchParams,
     page = 1,
-    limit: number = paginationLimit,
+    limit: number = paginationLimit
   ): Promise<IApiWalletsWrapper> {
     const response = (await ApiService.post("wallets/search", body, {
       params: {

@@ -1,27 +1,48 @@
 import ApiService from "@/services/api";
 import { IApiBlockchainWrapper } from "../interfaces";
-
+import CurrencyMixin from "@/mixins/currency";
 class BlockchainService {
   public async height(): Promise<number> {
-    const response = (await ApiService.get("blockchain")) as IApiBlockchainWrapper;
+    const response = (await ApiService.get(
+      "blockchain"
+    )) as IApiBlockchainWrapper;
     return response.data.block.height;
   }
 
   public async supply(): Promise<string> {
-    const response = (await ApiService.get("blockchain")) as IApiBlockchainWrapper;
+    const response = (await ApiService.get(
+      "blockchain"
+    )) as IApiBlockchainWrapper;
     return response.data.supply;
   }
 
-  public async cur(){
-    const data = (await ApiService.getUnlisted());
-    var finalBalance = 0;
-    for(const sdata of data){
-      const wallet = await ApiService.get("wallets/"+ sdata.address);
-      const sbalance = wallet.data.balance;
-      finalBalance += sbalance;
-    }
-    return finalBalance;
+  public async cur() {
+    try {
+      const { testnet, devnet, mainnet } = await ApiService.getUnlisted();
+      let finalBalance = 0;
+      for (const sdata of testnet) {
+        try {
+          const wallet = await ApiService.get("wallets/" + sdata);
+          const sbalance =
+            wallet === undefined
+              ? "0"
+              : Math.floor(Number(wallet.data.balance));
+          finalBalance += Math.floor(Number(sbalance)); // jelmar change
+        } catch (error) {}
+      }
+      return finalBalance;
+    } catch (error) {}
   }
+  // public async cur() {
+  //   const data = await ApiService.getUnlisted();
+  //   let finalBalance = 0;
+  //   for (const sdata of data) {
+  //     const wallet = await ApiService.get("wallets/" + sdata.address);
+  //     const sbalance = wallet.data.balance === null ? 0 : wallet.data.balance;
+  //     finalBalance += parseInt(sbalance); // jelmar change
+  //   }
+  //   return finalBalance;
+  // }
 }
 
 export default new BlockchainService();

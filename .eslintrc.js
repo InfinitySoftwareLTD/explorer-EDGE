@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   plugins: ["@typescript-eslint", "prettier", "vue"],
 
@@ -11,7 +11,7 @@ module.exports = {
     "plugin:vue/recommended",
     "@vue/typescript",
     "@vue/prettier",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
   ],
   rules: {
     "@typescript-eslint/ban-ts-ignore": "off",
@@ -29,8 +29,15 @@ module.exports = {
     "no-fallthrough": "off",
     "getter-return": "off",
     "comma-dangle": ["error", "always-multiline"],
+    "prettier/prettier": "off",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    camelcase: "off",
+    "@typescript-eslint/camelcase": ["off"],
+    ignoreParameters: false,
+    ignoreProperties: false,
   },
   parserOptions: {
-    parser: "@typescript-eslint/parser"
-  }
+    parser: "@typescript-eslint/parser",
+  },
 };
