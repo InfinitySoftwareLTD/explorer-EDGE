@@ -1,6 +1,7 @@
 import ApiService from "@/services/api";
 import { IApiBlockchainWrapper } from "../interfaces";
 import CurrencyMixin from "@/mixins/currency";
+import store from "@/store";
 class BlockchainService {
   public async height(): Promise<number> {
     const response = (await ApiService.get(
@@ -18,9 +19,14 @@ class BlockchainService {
 
   public async cur() {
     try {
+      let serveralias: any = [];
+      const server = await store.getters["network/alias"];
       const { testnet, devnet, mainnet } = await ApiService.getUnlisted();
+      if (server === "Main") serveralias = mainnet;
+      if (server === "Development") serveralias = devnet;
+      if (server === "Testnet") serveralias = testnet;
       let finalBalance = 0;
-      for (const sdata of testnet) {
+      for (const sdata of serveralias) {
         try {
           const wallet = await ApiService.get("wallets/" + sdata);
           const sbalance =

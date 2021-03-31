@@ -1,7 +1,7 @@
 import ApiService from "@/services/api";
 import { IApiWalletsWrapper, IWalletSearchParams } from "../interfaces";
 import { paginationLimit } from "@/constants";
-
+import store from "@/store";
 class WalletService {
   public async find(address: string) {
     const response = await ApiService.get(`wallets/${address}`);
@@ -55,9 +55,15 @@ class WalletService {
         limit,
       },
     });
+
+    let serveralias: any = [];
+    const server = await store.getters["network/alias"];
     const { testnet, devnet, mainnet } = await ApiService.getUnlisted();
+    if (server === "Main") serveralias = mainnet;
+    if (server === "Development") serveralias = devnet;
+    if (server === "Testnet") serveralias = testnet;
     const unlisted_add_array = [];
-    for (const singleUnlisted of testnet) {
+    for (const singleUnlisted of serveralias) {
       const address = singleUnlisted;
       unlisted_add_array.push(address);
     }
@@ -75,7 +81,7 @@ class WalletService {
         listed_addresses.push(response.data[i]);
       }
     }
-    for (const singleUnlisted of testnet) {
+    for (const singleUnlisted of serveralias) {
       const address = singleUnlisted;
       const hasIn = response.unlisted_addresses.some(
         (item) => item.address === address
