@@ -15,7 +15,7 @@ You can access it at [https://explorer.hedge.infinitysolutions.io/](https://expl
 
 ```bash
 git clone https://github.com/Plusid/explorer-EDGE.git
-cd explorer-EDGE
+cd explorer
 yarn install
 ```
 
@@ -25,14 +25,14 @@ yarn install
 
 ```bash
 yarn build:mainnet
-pm2 start explorer-EDGE
+pm2 start explorer
 ```
 
 #### 2.2 Devnet
 
 ```bash
 yarn build:devnet
-pm2 start explorer-EDGE
+pm2 start explorer
 ```
 
 #### 2.3 Custom
@@ -41,7 +41,7 @@ pm2 start explorer-EDGE
 yarn build --network my-custom-network
 ```
 ```bash
-pm2 start explorer-EDGE
+pm2 start explorer
 ```
 
 
@@ -100,10 +100,10 @@ yarn serve --env.routerMode=history
 pm2 status
 
 # Start Explorer
-pm2 start explorer-EDGE
+pm2 start explorer
 
 # Stop Explorer
-pm2 stop explorer-EDGE
+pm2 stop explorer
 ```
 ## Testing
 
