@@ -25,14 +25,14 @@ yarn install
 
 ```bash
 yarn build:mainnet
-pm2 start explorer
+pm2 start explorer-EDGE
 ```
 
 #### 2.2 Devnet
 
 ```bash
 yarn build:devnet
-pm2 start explorer
+pm2 start explorer-EDGE
 ```
 
 #### 2.3 Custom
@@ -41,7 +41,7 @@ pm2 start explorer
 yarn build --network my-custom-network
 ```
 ```bash
-pm2 start explorer
+pm2 start explorer-EDGE
 ```
 
 
@@ -100,10 +100,10 @@ yarn serve --env.routerMode=history
 pm2 status
 
 # Start Explorer
-pm2 start explorer
+pm2 start explorer-EDGE
 
 # Stop Explorer
-pm2 stop explorer
+pm2 stop explorer-EDGE
 ```
 ## Testing
 
