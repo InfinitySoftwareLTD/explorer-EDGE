@@ -44,7 +44,7 @@ export default {
       }
 
       bigNumberValue = bigNumberValue.times(
-        rate || BigNumber.make(store.getters["currency/currentRate"])
+        rate || BigNumber.make(store.getters["currency/rate"])
       );
 
       const cryptos: { [key: string]: string } = {
