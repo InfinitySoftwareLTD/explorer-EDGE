@@ -1,11 +1,6 @@
 <template>
   <Loader :data="wallets">
-    <TableWrapper
-      v-bind="$attrs"
-      :columns="columns"
-      :rows="wallets"
-      :no-data-message="$t('COMMON.NO_RESULTS')"
-    >
+    <TableWrapper v-bind="$attrs" :columns="columns" :rows="wallets" :no-data-message="$t('COMMON.NO_RESULTS')">
       <template slot-scope="data">
         <div v-if="data.column.field === 'originalIndex'">
           {{ getRank(data.row.originalIndex) }}
@@ -17,7 +12,8 @@
 
         <div v-else-if="data.column.field === 'balance'">
           <span>
-            {{ readableCrypto(data.row.balance, true, truncateBalance ? 2 : 8) }}
+            <!-- jelmar change -->
+            {{data.row.balance == 0 ? 0 : readableCrypto(data.row.balance, true, truncateBalance ? 2 : 8) }}
           </span>
         </div>
       </template>
@@ -63,9 +59,7 @@ export default class TableWalletsUnlisted extends Vue {
         thClass: "end-cell w-24 not-sortable",
         tdClass: "end-cell w-24 whitespace-no-wrap",
       },
-     
     ];
-
     return columns;
   }
   @Prop({
@@ -91,8 +85,7 @@ export default class TableWalletsUnlisted extends Vue {
     });
   }
 
-
-  public getUnlisted(){
+  public getUnlisted() {
     return parseInt(this.unlisted);
   }
 
