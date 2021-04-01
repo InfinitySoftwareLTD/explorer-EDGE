@@ -13,7 +13,7 @@ const state: ICurrencyState = {
     timestamp: 1,
     rate: 1,
   },
-  currentRate: 2,
+  currentRate: 1,
 };
 
 const actions: ActionTree<ICurrencyState, {}> = {
