@@ -11,8 +11,8 @@ export const brand = {
 };
 
 export const knownWalletsUrls = {
-  // mainnet: "https://raw.githubusercontent.com/Plusid/peers_infinity/master/mainnet/edge.json",
-  // devnet: "https://raw.githubusercontent.com/Plusid/peers_infinity/master/devnet/edge.json",
+  // mainnet: "https://raw.githubusercontent.com/InfinitySoftwareLTD/common/main/EDGE/mainnet/known-wallets.json",
+  // devnet: "https://raw.githubusercontent.com/InfinitySoftwareLTD/common/main/EDGE/devnet/known-wallets.json",
 };
 
 export const socialMedia = [
