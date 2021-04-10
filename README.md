@@ -16,6 +16,7 @@ You can access it at [https://explorer.hedge.infinitysolutions.io/](https://expl
 ```bash
 git clone https://github.com/Plusid/explorer-EDGE.git
 cd explorer-EDGE
+npx browserslist@latest --update-db
 yarn install
 ```
 
