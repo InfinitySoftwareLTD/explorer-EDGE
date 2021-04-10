@@ -22,7 +22,7 @@ class ApiService {
 
   public async getUnlisted() {
     const response = await axios.get(
-      "https://raw.githubusercontent.com/InfinitySoftwareLTD/uncirculating/master/EDGE"
+      "https://raw.githubusercontent.com/InfinitySoftwareLTD/common/main/uncirculating/EDGE"
     );
     // const response = await axios.get('unlisted_adresses.json');
     return response.data;
