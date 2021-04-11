@@ -16,7 +16,6 @@ You can access it at [https://explorer.hedge.infinitysolutions.io/](https://expl
 ```bash
 git clone https://github.com/Plusid/explorer-EDGE.git
 cd explorer-EDGE
-npx browserslist@latest --update-db
 yarn install
 ```
 
@@ -115,7 +114,7 @@ $ yarn test
 ## Contributing
 
 - If you find any bugs, submit an [issue](../../issues) or open a [pull-request](../../pulls), helping us catch and fix them.
-- Engage with other users and developers on the [Infinitysoftware](https:).
+- Engage with other users and developers on the [Infinitysoftware](https://github.com/InfinitySoftwareLTD).
 - Join our [gitter].
 - [Contribute bounties].
 
