@@ -31,13 +31,17 @@
         <span>{{ $t("COMMON.HEIGHT") }}:</span>
         <span class="block md:inline-block">{{ readableNumber(height) }}</span>
       </div>
-      <div class="mr-2">
-        <span>{{ networkToken() }}/{{ name }}:</span>
-        <span class="block md:inline-block">{{ rawCurrency(rate, name) }} </span>
+        <div class="mr-2">
+        <span>{{ $t("HEADER.NETWORK") }}:</span>
+        <span class="block md:inline-block">{{ $t(`HEADER.${alias.replace(" ", "_").toUpperCase()}`) }}</span>
+      </div>
+      <div :class="{ 'mr-2': showMarketCap }">
+        <span> {{ $t("HEADER.CURRENCYINCIRC") }}:</span>
+        <span class="block md:inline-block">{{ readableCrypto(cur, true, 2) }} </span>
       </div>
       <div>
-        <span>{{ $t("HEADER.SUPPLY") }}:</span>
-        <span class="block md:inline-block whitespace-no-wrap">{{ readableCrypto(supply, true, 0) }}</span>
+        <span>{{ $t("HEADER.MARKET_CAP") }}:</span>
+        <span class="block md:inline-block whitespace-no-wrap">{{ readableCurrency(cur, currentRate ) }}</span>
       </div>
     </div>
   </div>
