@@ -101,7 +101,7 @@
 
           <div v-if="transaction.asset.lock.expiration.type === 1" class="list-row-border-b">
             <div class="mr-4">{{ $t("TRANSACTION.TIMELOCK.EXPIRATION") }}</div>
-            <div>{{ readableTimestampFromEpoch(transaction.asset.lock.expiration.value) }}</div>
+            <div>{{ readableTimestampFromEpochNewFormat(transaction.asset.lock.expiration.value) }}</div>
           </div>
           <div v-else-if="transaction.asset.lock.expiration.type === 2" class="list-row-border-b">
             <div class="mr-4">{{ $t("TRANSACTION.TIMELOCK.BLOCKHEIGHT") }}</div>
