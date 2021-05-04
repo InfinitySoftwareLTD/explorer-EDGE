@@ -14,7 +14,7 @@ You can access it at [https://explorer.hedge.infinitysolutions.io/](https://expl
 ### 1. Clone the repository and Install Dependencies
 
 ```bash
-git clone https://github.com/Plusid/explorer-EDGE.git
+git clone https://github.com/InfinitySoftwareLTD/explorer-EDGE.git
 cd explorer-EDGE
 yarn install
 ```
