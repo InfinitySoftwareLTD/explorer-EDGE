@@ -30,12 +30,12 @@ class BlockchainService {
       for (const sdata of serveralias) {
         try {
           const wallet = await ApiService.get("wallets/" + sdata);
-          const sbalance =
-            wallet === undefined
-              ? "0"
-              : Math.floor(Number(wallet.data.balance));
-          finalBalance += Math.floor(Number(sbalance)); // jelmar change
-          console.log(finalBalance);
+          const { edge, infi } = await ApiService.getburnAddresses();
+           if (await wallet.data.address != edge) {
+          const sbalance = wallet === undefined ? "0" : Math.floor(Number(wallet.data.balance));
+          const lockedbalance = wallet.data.lockedBalance === undefined ? "0" : Math.floor(Number(await wallet.data.lockedBalance));
+          finalBalance += Math.floor(Number(sbalance)) + Math.floor(Number(lockedbalance)); // jelmar change
+           }
         } catch (error) {}
       }
       return finalBalance;
