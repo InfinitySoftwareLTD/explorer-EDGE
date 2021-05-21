@@ -14,7 +14,7 @@
             {{ $t("COMMON.EXPIRATION") }}
           </div>
           <div v-if="transaction.expirationType === 1" class="text-right">
-            {{ readableTimestampFromEpoch(transaction.expirationValue) }}
+            {{ readableTimestamp(transaction.expirationValue) }}
           </div>
           <div v-if="transaction.expirationType === 2" class="text-right">
             <div
