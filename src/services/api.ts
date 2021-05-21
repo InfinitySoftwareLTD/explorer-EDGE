@@ -28,6 +28,15 @@ class ApiService {
     return response.data;
   }
 
+
+  public async getburnAddresses() {
+    //jelmar changed
+    const response = await axios.get(
+      "https://raw.githubusercontent.com/InfinitySoftwareLTD/common/main/burnAddresses/addresses.json#",
+    );
+    return response.data.data;
+  }
+
   public async post(
     url: string,
     data = {},
