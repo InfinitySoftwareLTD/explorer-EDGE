@@ -72,12 +72,12 @@ export default class TopWallets extends Vue {
 
   public async beforeRouteEnter(to: Route, from: Route, next: (vm?: any) => void) {
     try {
-      const { meta, data, hasUnlisted, unlisted_addresses } = await WalletService.top(Number(to.params.page));
+      const { meta, data, hasUnlisted, unlisted_addresses, unlisted_addresses2 } = await WalletService.top(Number(to.params.page));
       
       next((vm: TopWallets) => {
         vm.currentPage = Number(to.params.page);
         vm.setWallets(data);
-        vm.setUnlistedAddresses(unlisted_addresses);
+        vm.setUnlistedAddresses(unlisted_addresses2);
         vm.setMeta(meta);
         vm.setUnlisted(hasUnlisted);
       });
@@ -94,11 +94,11 @@ export default class TopWallets extends Vue {
     this.unlistedwallets = null;
 
     try {
-      const { meta, data, hasUnlisted, unlisted_addresses } = await WalletService.top(Number(to.params.page));
+      const { meta, data, hasUnlisted, unlisted_addresses, unlisted_addresses2 } = await WalletService.top(Number(to.params.page));
 
       this.currentPage = Number(to.params.page);
       this.setWallets(data);
-      this.setUnlistedAddresses(unlisted_addresses);
+      this.setUnlistedAddresses(unlisted_addresses2);
       this.setMeta(meta);
       this.setUnlisted(hasUnlisted);
       next();
