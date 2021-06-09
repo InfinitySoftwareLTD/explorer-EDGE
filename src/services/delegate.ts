@@ -51,7 +51,7 @@ class DelegateService {
     return response;
   }
 
-  public async voterCount(publicKey: string, excludeLowBalances = true): Promise<number> {
+  public async voterCount(publicKey: string, excludeLowBalances = false): Promise<number> {
     const response = (await WalletService.search(
       {
         vote: publicKey,

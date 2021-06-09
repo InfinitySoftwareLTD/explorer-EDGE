@@ -49,6 +49,8 @@ class WalletService {
 
   public async top(page = 1, limit: number = paginationLimit) {
     //change jelmar
+    const response2 = await ApiService.get("wallets/top");
+
     const response = await ApiService.get("wallets/top", {
       params: {
         page,
@@ -93,10 +95,35 @@ class WalletService {
       }
     }
 
+    // start response2
+    response2.unlisted_addresses = [];
+    for (let i = 0; i < response2.data.length; i++) {
+      const singlewallet = response2.data[i];
+      const walletAddress = singlewallet.address;
+      if (unlisted_add_array.includes(walletAddress)) {
+        response2.unlisted_addresses.push(response2.data[i]);
+        unlistedCount++;
+      }
+    }
+    for (const singleUnlisted of serveralias) {
+      const address = singleUnlisted;
+      const hasIn2 = response2.unlisted_addresses.some(
+        (item) => item.address === address
+      );
+       if (!hasIn2) {
+        const balance = "0";
+        response2.unlisted_addresses.push({ address, balance });
+        unlistedCount++;
+      }
+    }
+    // end response2
+
+
     if (unlistedCount > 0) {
       response.hasUnlisted = "1";
     }
     response.data = listed_addresses;
+    response.unlisted_addresses2 = await response2.unlisted_addresses
 
     return response;
   }
