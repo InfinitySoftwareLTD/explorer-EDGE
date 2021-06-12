@@ -15,7 +15,7 @@
             </span>
           </div>
           <Clipboard v-if="block.id" :value="block.id" />
-        </div>
+        </div>ie
       </div>
     </div>
     <div class="flex w-full md:block md:w-auto justify-between whitespace-no-wrap">
