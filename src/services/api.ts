@@ -10,7 +10,7 @@ class ApiService {
     const server = store.getters["network/server"];
 
     const response = await axios.get(`${server}/${url}`, config);
-
+      
     if (response.data.error) {
       return Promise.reject(
         new Error(`Error GET ${url} : ${JSON.stringify(response)}`)
@@ -18,6 +18,11 @@ class ApiService {
     }
 
     return response.data;
+  }
+
+  public async getWalletINFIExist(wallet: string): Promise<IApiResponse> {
+    const response = await axios.get(`https://api.infinitysolutions.io/api/v2${wallet}`);
+    return response;
   }
 
   public async getUnlisted() {
