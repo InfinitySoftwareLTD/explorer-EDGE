@@ -61,7 +61,7 @@
           {{ $t("WALLET.BALANCE", { token: networkToken() }) }}
         </div>
         <div class="text-lg text-theme-text-address semibold">
-          <span v-tooltip="showBalanceTooltip ? readableCurrency(wallet.balance) : ''">
+          <span v-tooltip="showBalanceTooltip ? readableCurrency(wallet.balance, 1) : ''">
             {{ readableCrypto(wallet.balance, false) }}
           </span>
         </div>
@@ -77,7 +77,7 @@
             showBalanceTooltip
               ? {
                   trigger: 'hover click',
-                  content: readableCurrency(wallet.lockedBalance || 0),
+                  content: readableCurrency(wallet.lockedBalance || 0, 1),
                 }
               : ''
           "
@@ -166,7 +166,7 @@
               <span
                 v-tooltip="{
                   trigger: 'hover click',
-                  content: readableCurrency(wallet.balance),
+                  content: readableCurrency(wallet.balance, 1),
                 }"
               >
                 {{ readableCrypto(wallet.balance, false) }}
@@ -182,7 +182,7 @@
             <span
               v-tooltip="{
                 trigger: 'hover click',
-                content: readableCurrency(wallet.lockedBalance),
+                content: readableCurrency(wallet.lockedBalance, 1),
               }"
               class="text-theme-text-address"
             >
