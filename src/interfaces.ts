@@ -100,6 +100,18 @@ export interface ITransaction {
   lockStatus?: number;
 }
 
+export interface delegatesScan {
+  wallet_address: string;
+  beneficiaryRate: string;
+  requiredMinimumBalance: string;
+  maintainMinimumBalance: number;
+  beneficiaryAddress: string;
+  confidenceRate: number;
+  multiPaymentLimit: number;
+  lastUpdate: ITimestamp;
+  rank: number;
+}
+
 export interface ISortParameters {
   field: string;
   type: string;
