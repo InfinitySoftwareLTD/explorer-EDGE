@@ -2,7 +2,7 @@
   "name": "infinity-blockchain-explorer",
   "version": "1.0.0",
   "description": "A Blockchain Explorer for HEDGE using Vue.js and Tailwind CSS",
-  "author": "Brian Faust",
+  "author": "Developers infinity",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -105,7 +105,11 @@
     "vue-template-compiler": "^2.6.11"
   },
   "bugs": {
-    "url": "https://github.com/Plusid/explorer_EDGE./issues"
+    "url": "https://github.com/InfinitySoftwareLTD/explorer-EDGE/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InfinitySoftwareLTD/explorer-EDGE.git"
+  }
 }
