@@ -105,7 +105,11 @@
     "vue-template-compiler": "^2.6.11"
   },
   "bugs": {
-    "url": "https://github.com/Plusid/explorer_EDGE./issues"
+    "url": "https://github.com/InfinitySoftwareLTD/core-explorer-EDGE/issues"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InfinitySoftwareLTD/core-explorer-EDGE.git"
+  }
 }
